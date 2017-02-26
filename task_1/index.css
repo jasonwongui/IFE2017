@@ -1,0 +1,79 @@
+.container{
+	width: 300px;
+	margin: 0 auto;
+}
+.cb_wrap, .rd_wrap, .cb_sprit_wrap, .rd_sprit_wrap{
+	height: 20px;
+	margin-bottom: 30px;
+}
+input{
+	   display: none; 
+}
+/* 伪元素实现 */
+.rd + label, .cb + label{
+    width: 14px;
+    height: 14px;
+    border: 1px solid #d9d9d9;
+    display:flex;
+    cursor: pointer;
+}
+/* 单选框 */
+.rd + label{
+	float: left;
+	margin-right: 10px;
+	border-radius: 50%;
+}
+.rd:checked + label{	
+	border:1px solid #d73e33;
+}
+.rd:checked + label::after{
+	margin: auto;
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #d73e33; 
+}
+/* 复选框 */
+.cb + label{
+	float: left;
+	margin-right: 10px;
+}
+.cb:checked + label{	
+	border:1px solid #d73e33;
+	
+}
+.cb:checked + label::after{
+	margin: auto;
+    content: '\2714';
+    width: 8px;
+    height: 8px;
+    line-height: 8px;
+    font-size: 12px;
+    color: #d73e33;
+}
+
+/* 雪碧图实现 */
+.rd_sprit + label,.cb_sprit + label{
+	width: 16px;
+    height: 16px;
+    float: left;
+    margin-right: 10px;
+    display:flex;
+    cursor: pointer;
+	background: url(btn.png) no-repeat;
+}
+/* 单选框 */
+.rd_sprit + label{
+	background-position: -24px -10px;
+}
+.rd_sprit:checked + label{
+	background-position: -59px -10px;
+}
+/* 复选框 */
+.cb_sprit + label{
+	background-position: -25px -33px;
+}
+.cb_sprit:checked + label{
+	background-position: -60px -32px;
+}
