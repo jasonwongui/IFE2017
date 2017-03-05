@@ -34,31 +34,39 @@
  * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
  * 返回一个数组，格式见函数中示例
  */
-  var getUl = document.getElementById("source");
-  var lis = getUl.getElementsByTagName('li');
-  var setUl = document.getElementById("resort");
+  
+ 
 
 function getData() {
-  var data1 = "";
-  var data2 = "";
-  var dataArr1 = [];
-  var dataArr2 = [];
-  var dataArr = [];
+  var getUl = document.getElementById("source");
+  var lis = getUl.getElementsByTagName('li');
+  var data = [];
+
+/*  var city = "";
+  var num = "";
+  for(var i=0;i<lis.length; i++){
+    var bs = lis[i].getElementsByTagName('b');  
+    city += lis[i].innerHTML.substring(0,2)+" ";// substring 方法用于提取字符串中介于两个指定下标之间的字符
+    num += bs[0].innerHTML.substr(0,2)+" ";//substr 方法用于返回一个从指定位置开始的指定长度的子字符串   
+  };
+  cityArr = city.split(" ",lis.length);//字符串转数组
+  numArr = num.split(" ",lis.length);
+
+  for(var j=0;j<lis.length; j++){
+     data.push([cityArr[j],numArr[j]]);//两个一维数组合并成一个二维数组
+   }
+   console.log(data);
+  return data;*/
 
   for(var i=0;i<lis.length; i++){
     var bs = lis[i].getElementsByTagName('b');  
-    data1 += lis[i].innerHTML.substring(0,2)+" ";// substring 方法用于提取字符串中介于两个指定下标之间的字符
-    data2 += bs[0].innerHTML.substr(0,2)+" ";//substr 方法用于返回一个从指定位置开始的指定长度的子字符串   
+    var city = lis[i].innerHTML.substring(0,2);// substring 方法用于提取字符串中介于两个指定下标之间的字符
+    var num = bs[0].innerHTML.substr(0,2);//substr 方法用于返回一个从指定位置开始的指定长度的子字符串  
+    data.push([city,num]);//两个一维数组合并成一个二维数组 
   };
-  dataArr1 = data1.split(" ",lis.length);//字符串转数组
-  dataArr2 = data2.split(" ",lis.length);
-
-  for(var j=0;j<lis.length; j++){
-     dataArr.push([dataArr1[j],dataArr2[j]]);//两个一维数组合并成一个二维数组
-   }
-  return dataArr;
+  return data;
     /* 
-  dataArr = [
+  data = [
     ["北京", 90],
     ["北京", 90]
     ……
@@ -78,6 +86,7 @@ function sortAqiData(data) {
   }
   arr = data.sort(sortArray);
   return arr;
+
 }
 
 /**
@@ -86,7 +95,8 @@ function sortAqiData(data) {
  * 格式见ul中的注释的部分
  */
 function render(data) {
-  for(var i=0;i<lis.length;i++){
+  var setUl = document.getElementById("resort");
+  for(var i=0;i<data.length;i++){
     setUl.innerHTML +=  "<li>第"+(i+1).toLocaleString('zh-Hans-CN-u-nu-hanidec')+"名："+data[i][0]+"空气质量：<b>"+data[i][1]+"</b></li>";
   }
 }
