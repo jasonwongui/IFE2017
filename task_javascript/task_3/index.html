@@ -87,7 +87,7 @@ function sortAqiData(data) {
  */
 function render(data) {
   for(var i=0;i<lis.length;i++){
-    setUl.innerHTML +=  "<li>第"+(i+1)+"名："+data[i][0]+"空气质量：<b>"+data[i][1]+"</b></li>";
+    setUl.innerHTML +=  "<li>第"+(i+1).toLocaleString('zh-Hans-CN-u-nu-hanidec')+"名："+data[i][0]+"空气质量：<b>"+data[i][1]+"</b></li>";
   }
 }
 
