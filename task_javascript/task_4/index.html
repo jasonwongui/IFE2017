@@ -57,19 +57,20 @@
 		}
 		opUl.innerHTML = tempUl;//替换原li列表
 	};
+
+	
 	
 	//判断是否为数字
 	function isNum(str,sn){
-		if(isNaN(str)){
+		if(isNaN(str)||str==""){
 			document.getElementById("setNum").value = "";
 			document.getElementById("setNum").setAttribute("placeholder","您输入的不是数字，请重新输入……");
 			return false;
 			
 		}
 		insertString(sn);
-		
-
 	}
+	
 	//左侧加入
 	function leftInsert(){
 		var sn = 0;
@@ -94,6 +95,7 @@
 		var sn = lis.length-1;
 		removeString(sn);
 	}
+
 	
 	//绑定按钮点击事件
 	function init(){
