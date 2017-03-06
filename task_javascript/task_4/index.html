@@ -94,18 +94,10 @@
 	
 	//绑定按钮点击事件
 	function init(){
-		document.getElementById("leftInsert").onclick = function(){
-			leftInsert();
-		}
-		document.getElementById("rightInsert").onclick = function(){
-			rightInsert();
-		}
-		document.getElementById("leftRemove").onclick = function(){
-			leftRemove();
-		}
-		document.getElementById("rightRemove").onclick = function(){
-			rightRemove();
-		}
+		document.getElementById("leftInsert").onclick = leftInsert;
+		document.getElementById("rightInsert").onclick = rightInsert;
+		document.getElementById("leftRemove").onclick = leftRemove;
+		document.getElementById("rightRemove").onclick = rightRemove;
 	}
 	init();
 </script>
