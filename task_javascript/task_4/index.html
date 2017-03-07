@@ -27,7 +27,7 @@
 			var num = lis[i].innerHTML;
 			arr.push(num);//转换成数组
 		}
-		arr.splice(sn,arr,str);//str表示原字符串变量，flg表示要插入的字符串，sn表示要插入的位置
+		arr.splice(sn,0,str);//拼接函数(索引位置, 要删除元素的数量, 要插入的元素)
 		console.log(arr);
 		
 		for(var i=0;i<arr.length;i++){
@@ -90,7 +90,6 @@
 		var sn = lis.length-1;
 		removeString(sn);
 	}
-
 	
 	//绑定按钮点击事件
 	function init(){
@@ -98,6 +97,10 @@
 		document.getElementById("rightInsert").onclick = rightInsert;
 		document.getElementById("leftRemove").onclick = leftRemove;
 		document.getElementById("rightRemove").onclick = rightRemove;
+		opUl.onclick = function(){
+			this.removeChild(event.target);//删除子节点（获得触发事件的元素）
+		}
+		
 	}
 	init();
 </script>
