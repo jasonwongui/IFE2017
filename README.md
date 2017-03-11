@@ -8,5 +8,4 @@
   2. 0228 task_2 [任务二：零基础JavaScript编码（二）](https://jasonwongui.github.io/IFE2017/task_javascript/task_2/index.html) <br>
   3. 0305 task_3 [任务三：零基础JavaScript编码（三）](https://jasonwongui.github.io/IFE2017/task_javascript/task_3/index.html) <br>
   4. 0306 task_4 [任务四：基础JavaScript练习（一）](https://jasonwongui.github.io/IFE2017/task_javascript/task_4/index.html) <br>
-
-  
+  5. 0311 task_5 [任务五：基础JavaScript练习（二）](https://jasonwongui.github.io/IFE2017/task_javascript/task_5/index.html) <br>

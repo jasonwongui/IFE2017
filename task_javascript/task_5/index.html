@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>任务五：基础JavaScript练习（二）</title>
+	<link rel="stylesheet" href="index.css" />
+</head>
+<body>
+	<input id="setNum" placeholder="请输入数字" type="text" value=""/>
+	<input id="leftInsert" type="button" value="左侧入"/>
+	<input id="rightInsert" type="button" value="右侧入"/>
+	<input id="leftRemove" type="button" value="左侧出"/>
+	<input id="rightRemove" type="button" value="右侧出"/>
+	<ul id="op">
+
+	</ul>
+<script type="text/javascript">
+	var opUl = document.getElementById("op");
+	var lis = opUl.getElementsByTagName("li");
+	
+	//插入数组
+	function insertString(sn){
+		var str = document.getElementById("setNum").value;//获取原字符串
+		var arr = [];
+		var tempUl = "";
+		for(var i=0;i<lis.length;i++){
+			var num = lis[i].innerHTML;
+			arr.push(num);//转换成数组
+		}
+		arr.splice(sn,0,str);//拼接函数(索引位置, 要删除元素的数量, 要插入的元素)
+		console.log(arr);
+		
+		for(var i=0;i<arr.length;i++){
+			tempUl += "<li>"+arr[i]+"</li>";
+		}
+		opUl.innerHTML = tempUl;//替换原li列表
+	};
+	
+	//删除数组
+	function removeString(sn){
+		var arr = [];
+		var tempUl = "";
+		for(var i=0;i<lis.length;i++){
+			var num = lis[i].innerHTML;
+			arr.push(num);
+		}
+		arr.splice(sn,1);//sn表示要删除的位置，1表示删除一位
+		console.log(arr);
+		
+		for(var i=0;i<arr.length;i++){
+			tempUl += "<li>"+arr[i]+"</li>";
+		}
+		opUl.innerHTML = tempUl;//替换原li列表
+	};
+
+	
+	
+	//判断是否为数字，限制数字为10~100之间
+	function isNum(str,sn){
+		if(isNaN(str)||str==""){
+			document.getElementById("setNum").value = "";
+			document.getElementById("setNum").setAttribute("placeholder","您输入的不是数字，请重新输入……");
+			return false;
+			
+		}
+		if(str>=10&&str<=100){
+			insertString(sn);
+		}
+		
+	}
+
+	//左侧加入
+	function leftInsert(){
+		var sn = 0;
+		var str = document.getElementById("setNum").value;
+		isNum(str,sn);
+		
+	}
+	//右侧加入
+	function rightInsert(){
+		var sn = lis.length;
+		var str = document.getElementById("setNum").value;
+		isNum(str,sn);	
+
+	}
+	//左侧删除
+	function leftRemove(){
+		var sn = 0;
+		removeString(sn);
+	}
+	//右侧删除
+	function rightRemove(){
+		var sn = lis.length-1;
+		removeString(sn);
+	}
+
+	
+	//绑定按钮点击事件
+	function init(){
+		document.getElementById("leftInsert").onclick = leftInsert;
+		document.getElementById("rightInsert").onclick = rightInsert;
+		document.getElementById("leftRemove").onclick = leftRemove;
+		document.getElementById("rightRemove").onclick = rightRemove;
+	}
+	init();
+</script>
+</body>
+</html>
